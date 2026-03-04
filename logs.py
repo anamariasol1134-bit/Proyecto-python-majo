@@ -52,3 +52,16 @@ def listar_logs():
             print(f"Fecha {elemento['fecha']}")
             print(f"mensaje {elemento['mensaje']}")
             print("---------------------------------------")
+
+
+def logs_cantidad():
+    logs=cargar(ARCHIVO_LOGS)
+
+    nuevo_logs={
+        "id":generar_id(logs),
+        "fecha":date.today().strftime("%Y-%m-%d"),
+        "cantidad":"cantidad no encontrado",
+        "mensaje":"La cantidad solicitada supera las unidades disponibles!"
+    }
+    logs.append(nuevo_logs)
+    guardar(ARCHIVO_LOGS,logs)
